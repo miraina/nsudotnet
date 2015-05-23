@@ -7,7 +7,16 @@ namespace Milovanova.Nsudotnet.Perlin
     {
         static void Main(string[] args)
         {
-            int size = Convert.ToInt32(args[0]);
+            if (args.Length == 0 || args.Length == 1)
+            {
+                Console.WriteLine("Bad arguments. Please, enter size of image and image name");
+                Console.ReadKey();
+                return;
+            }
+            string sizeArg = args[0];
+            string imageNameArg = args[1];
+
+            int size = Convert.ToInt32(sizeArg);
             Grid grid1 = new Grid(size, size, 2);
             Grid grid2 = new Grid(size, size, 4);
             Grid grid3 = new Grid(size, size, 8);
@@ -28,7 +37,7 @@ namespace Milovanova.Nsudotnet.Perlin
                     image.SetPixel(i, j, Color.FromArgb(red, green, blue));
                 }
             }
-            image.Save(args[1]);
+            image.Save(imageNameArg);
         }
     }
 }
