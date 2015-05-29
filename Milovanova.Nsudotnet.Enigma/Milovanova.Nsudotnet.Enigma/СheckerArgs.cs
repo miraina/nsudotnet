@@ -10,7 +10,7 @@ namespace Milovanova.Nsudotnet.Enigma
            
             if (args.Length != 4 && args.Length != 5)
             {
-                throw new Exception("Expected 4 or 5 arguments");
+                throw new Exception("Wrong input data : Expected 4 or 5 arguments");
             }
 
             string tempTypeOfCoding = args[0].ToLower();
@@ -23,7 +23,7 @@ namespace Milovanova.Nsudotnet.Enigma
             {
                 if (args.Length != 4)
                 {
-                    throw new Exception("Expected 4 arguments");
+                    throw new Exception("Wrong input data : Expected 4 arguments");
                 }
                 tempInFileName = args[1];
                 tempTypeOfAlgorithm = args[2].ToLower();
@@ -34,7 +34,7 @@ namespace Milovanova.Nsudotnet.Enigma
             {
                 if (args.Length != 5)
                 {
-                    throw new Exception("Expected 5 arguments");
+                    throw new Exception("Wrong input data : Expected 5 arguments");
                 }
                 tempInFileName = args[1];
                 tempTypeOfAlgorithm = args[2].ToLower();
@@ -42,18 +42,12 @@ namespace Milovanova.Nsudotnet.Enigma
                 tempOutFileName = args[4];
                 if (!File.Exists(tempKeyFileName))
                 {
-                    throw new Exception("The key file not exists");
+                    throw new Exception("Wrong input data : The key file not exists");
                 }
             }
             else
             {
-                throw new Exception("Expected 'encrypt' or 'decrypt' in first argument");
-            }
-
-
-            if (!File.Exists(tempInFileName))
-            {
-                throw new Exception("The input file not exists");
+                throw new Exception("Wrong input data : Expected 'encrypt' or 'decrypt' in first argument");
             }
 
             typeOfCoding = tempTypeOfCoding;
